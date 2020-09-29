@@ -1,0 +1,574 @@
+title: "&cTest"
+rows: 5
+mode: set
+
+locations:
+- "586,5,412,disney"
+
+npcs:
+  citizens:
+  - 1
+
+alias:
+- "test"
+
+load-macros:
+- "global-macro"
+- "rank-test"
+
+macros:
+  '%test%': "some test stuff"
+  '%update-interval%': '100'
+
+functions:
+  load-permission: 
+    type: "load"
+    functions:
+    - "permission: some.permission"
+    - "broadcast: %test% asdf"
+  exit: 
+    type: "exitmenu"
+    functions:
+    - "broadcast: exit"
+  switch: 
+    type: "switchmenu"
+    functions:
+    - "broadcast: switch"
+
+close: false 
+'0':
+  icon: "skull_item"
+  name: "&eYour Profile"
+  data: 3
+  nbt: '{SkullOwner:"%player%"}'
+  #nbt: ""#'{SkullOwner:{Id:"04049c90-d3e9-4621-9caf-00000aaa8777",Properties:{textures:[{Value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWQ0ZjE4N2Y0MWNhZTY0MTU1OGY4Nzg3YmYxZTdiZTcyYTZkNzI5MTFiMjFjOTdkOTE2ZjBhN2ZhYWYyOGY3In19fQ=="}]}},display:{Name:"§9Black Blank"}}'
+  close: false
+  lore:
+  - "&eYour username: %player%"
+  - "&eYour money: %money%"
+  #- "%lol-macro%"
+  functions:
+    click:
+      type:
+      - "click"
+      #- "left"
+      #- "right"
+      #- "middle"
+      #- "shiftleft"
+      #- "ShiftRight"
+      functions:
+      #- 'condition: STREQUAL("1", "2") != 1'
+      - 'CheckLevel: 10'
+      - 'broadcast: &cLevel test passed'
+      fail-broadcast:
+        type: "fail"
+        fail-on:
+        - "checklevel"
+        functions:
+        - "Broadcast: &cYou did not have 10 levels"
+      
+'1':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  glow: true
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+      - 'setmoveable'
+'2':
+  icon: "STONE"
+  name: "&casdf"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: closed'
+      - 'setglow: true'
+'3':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'4':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'5':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'6':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'7':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 100
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    test-name:
+      type: "load"
+      functions:
+      - "checktick: %frame% > 10"
+      - "setname: asdf"
+    broadcast:
+      type: "left"
+      functions:
+      - "test: test"
+      - 'permission: test.youdonthavethis'
+      - 'broadcast: You had the permission test.youdonthavethis'
+      fail-broadcast:
+        type: "fail"
+        fail-on: "permission"
+        functions:
+        - "broadcast: &c&lYou did not have the permission test.youdonthavethis"
+      not-fail-broadcast:
+        type: "left"
+        functions:
+        - "broadcast: This shouldn't broadcast if failed"
+    broadcast2:
+      type: "left"
+      functions:
+      - "broadcast: asdf"
+'8':
+  icon: "compass"
+  name: "asdf"
+  update-interval: '100'
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    dirt-load:
+      type:
+      - "load"
+      functions:
+      - "broadcast: before tick"
+      - "checktick: %tick% >= 100"
+      - "settype: DIRT"
+      - "checktick: %tick% >= 200"
+      - "resettick"
+      - "settype: compass"
+'9':
+  icon: "sponge"
+  name: "Goto test 2"
+  #update-interval: 1
+  functions:
+    goto-test2:
+      type:
+      - "click"
+      functions:
+      - "gui: test2"
+'10':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'11':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'12':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'13':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'14':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'15':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'16':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'17':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'18':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'19':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'20':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'21':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'22':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'23':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'24':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'25':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'26':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'27':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'28':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'29':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'30':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'31':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'32':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'33':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'34':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'35':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'36':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'37':
+  icon: "DIRT"
+  functions:
+    broadcast:
+      type: "click"
+      functions:
+      - 'setmoveable: true'
+'38':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'39':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'40':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 1
+  lore:
+  - "%test-multiline-animation%"
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'broadcast: test'
+'41':
+  icon: "DIRT"
+  name: "%test-animation% &cSet name test %player%"
+  update-interval: 20
+  lore:
+  - "%test-multiline-animation%"
+  close: false
+  functions:
+    broadcast:
+      type: "left"
+      functions:
+      - 'minimsg: <click:run_command:/help><red>test</red>'
+      - 'minibroadcast: **<red>test broadcast</red>**'
+'42':
+  icon: "DIRT"
+  name: "Test dirt"
+  moveable: true
+#  functions:
+#    moveable:
+#      type: "click"
+#      functions:
+#      - 'CheckMoveable: true'
+#      - 'SetMoveable: false'
+#      fail-function:
+#        type: "fail"
+#        fail-on: "CheckMoveable"
+#        functions:
+#        - 'Broadcast: Check move has failed'
+'43':
+  icon: "STONE"
+  functions:
+    refresh:
+      type: 'click'
+      functions:
+      - "broadcast: refresh"
+      - "refreshgui"
+'44':
+  icon: "DIRT"
+  name: "Test dirt"
+  functions:
+    shop:
+      type: "click"
+      functions:
+      - "gshop: STONE 10000 1,2,3,4,5,6"
